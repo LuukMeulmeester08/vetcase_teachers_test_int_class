@@ -1,0 +1,73 @@
+name: Peer Feedback
+description: Structured feedback from one pair to another on a case milestone
+title: "[Feedback] Milestone: "
+labels: ["peer-feedback"]
+body:
+  - type: input
+    id: reviewer_pair
+    attributes:
+      label: Reviewing pair
+      description: Names of both students giving this feedback
+    validations:
+      required: true
+
+  - type: dropdown
+    id: milestone
+    attributes:
+      label: Milestone under review
+      options:
+        - System context diagram
+        - Persona
+        - System requirements
+        - High fidelity prototype
+        - Use case specification
+        - Entity relationship diagram
+        - Component diagram
+        - API specification and message design
+        - UXD testing (plan, script, results)
+    validations:
+      required: true
+
+  - type: textarea
+    id: strengths
+    attributes:
+      label: What works well
+      description: Concrete, specific. Not "nice job" — point at actual decisions, code, or docs.
+      placeholder: "e.g. the ER diagram matches the use cases directly, no orphan entities"
+    validations:
+      required: true
+
+  - type: textarea
+    id: unclear
+    attributes:
+      label: What's unclear
+      description: Things you had to guess at or couldn't follow from the repo alone.
+    validations:
+      required: true
+
+  - type: textarea
+    id: missing_or_risky
+    attributes:
+      label: What's missing or risky
+      description: Gaps against the assignment requirements, or design/implementation choices that look like they'll cause problems later.
+    validations:
+      required: true
+
+  - type: textarea
+    id: one_question
+    attributes:
+      label: One question you'd ask them directly
+      description: Forces prioritization instead of a dump of minor comments.
+    validations:
+      required: true
+
+  - type: dropdown
+    id: severity
+    attributes:
+      label: Overall assessment
+      options:
+        - No blocking issues
+        - Minor issues, would still proceed
+        - Blocking issues, needs rework before next milestone
+    validations:
+      required: true
